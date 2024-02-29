@@ -7,7 +7,7 @@ import { slideFromLeft, slideFromRight } from "../utils/motions";
 
 const Home = () => {
   return (
-    <div className="flex relative justify-center xl:justify-between h-full w-full items-center ">
+    <section className="flex relative justify-center xl:justify-between h-full w-full items-center ">
       <div className="flex flex-col justify-center xl:justify-start xl:px-24 ">
         <motion.div
           initial="hidden"
@@ -62,7 +62,7 @@ const Home = () => {
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
