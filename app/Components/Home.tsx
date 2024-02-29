@@ -7,8 +7,11 @@ import { slideFromLeft, slideFromRight } from "../utils/motions";
 
 const Home = () => {
   return (
-    <section className="flex relative justify-center xl:justify-between h-full w-full items-center ">
-      <div className="flex flex-col justify-center xl:justify-start xl:px-24 ">
+    <section
+      id="Home"
+      className="flex relative justify-center h-full  xl:justify-between w-full items-center px-5 "
+    >
+      <div className="flex flex-col justify-center  items-center py-24 xl:py-0 xl:justify-start xl:px-24 ">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -23,7 +26,6 @@ const Home = () => {
           </h1>
 
           <div className="flex flex-col text-center xl:text-start mt-5 text-xl text-white max-w-[500px]">
-            {" "}
             <p>
               {
                 "I' m Krishnadas R, a full-stack engineer passionate about innovation and problem-solving."
@@ -33,7 +35,7 @@ const Home = () => {
         </motion.div>
       </div>
 
-      <div className="relative hidden xl:flex">
+      <div className="relative hidden xl:flex   ">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -43,12 +45,12 @@ const Home = () => {
             src={"/universe.jpg"}
             width={600}
             height={600}
-            className=" mix-blend-lighten "
+            className=" mix-blend-lighten ml-12 "
             alt="universe"
           />
 
           <Image
-            className="absolute top-[6.5rem] left-8 "
+            className="absolute top-[6rem] left-8 "
             src={"/avatar.png"}
             width={500}
             height={500}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import StarCanvas from "./components/Starbg";
 import Nav from "./components/Nav";
 import { UIProviders } from "./providers/NextUIProvider";
@@ -19,8 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen w-full overflow-y-auto min-w-[360px] overflow-x-hidden">
+      <body className="overflow-y-scroll overflow-x-hidden">
         <StarCanvas />
+
         <UIProviders>{children}</UIProviders>
       </body>
     </html>
