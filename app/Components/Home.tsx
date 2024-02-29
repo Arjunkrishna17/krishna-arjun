@@ -21,22 +21,16 @@ const Home = () => {
               First Principles
             </span>
           </h1>
-        </motion.div>
 
-        <div className="flex flex-col text-center xl:text-start mt-5 text-xl text-white max-w-[500px]">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideFromLeft(0.7)}
-          >
+          <div className="flex flex-col text-center xl:text-start mt-5 text-xl text-white max-w-[500px]">
             {" "}
             <p>
               {
                 "I' m Krishnadas R, a full-stack engineer passionate about innovation and problem-solving."
               }
             </p>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
 
       <div className="relative hidden xl:flex">
@@ -50,7 +44,7 @@ const Home = () => {
             width={600}
             height={600}
             className=" mix-blend-lighten "
-            alt="Krishnadas"
+            alt="universe"
           />
 
           <Image
