@@ -1,7 +1,9 @@
 import Home from "./components/Home";
 import Nav from "./components/Nav";
-import Projects from "./components/Projects";
+import SwipperContainer from "./components/SwipperContainer";
 import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Blogs from "./components/Blogs";
 
 const page = () => {
   return (
@@ -10,6 +12,7 @@ const page = () => {
       <Home />
       <Skills />
       <Projects />
+      <Blogs />
     </main>
   );
 };
