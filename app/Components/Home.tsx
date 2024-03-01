@@ -38,7 +38,7 @@ const Home = () => {
             target="_blank"
             href="https://diversio-product-images.s3.amazonaws.com/CV/Krishnadas+R.pdf"
           >
-            <div className="flex w-full justify-center">
+            <div className="flex w-full justify-center xl:justify-start">
               <Button className="relative z-30 bg-transparent border text-white shadow-xl hover:bg-black mt-10  shadow-indigo-900">
                 Get My Resume
               </Button>
