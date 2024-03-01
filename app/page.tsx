@@ -1,6 +1,5 @@
 import Home from "./components/Home";
 import Nav from "./components/Nav";
-import SwipperContainer from "./components/SwipperContainer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Blogs from "./components/Blogs";
