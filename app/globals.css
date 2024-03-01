@@ -2,4 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+span.swiper-pagination-bullet-active {
+  background-color: white !important;
+  opacity: 1;
+}
 
+/* target all bullets */
+span.swiper-pagination-bullet {
+  background-color: gray;
+  opacity: 1;
+}
+.swiper-pagination {
+}
+
+.card-body {
+  width: 18rem;
+}
+.swiper-slide {
+  display: flex !important;
+  justify-content: center !important;
+  transition: all 0.4s ease;
+}
