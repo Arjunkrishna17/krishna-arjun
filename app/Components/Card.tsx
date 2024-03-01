@@ -1,11 +1,6 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image, Button } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+
 import { projectData } from "../data/project";
 
 interface props {
@@ -13,10 +8,12 @@ interface props {
 }
 
 const ProjectCard = ({ data }: props) => {
+  const router = useRouter();
+
   return (
     <Card
       isFooterBlurred
-      className="w-60 h-60 sm:w-96 sm:h-96 xl:w-[500px] xl:h-[450px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700"
+      className="w-96 h-96 xl:w-[500px] xl:h-[450px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700"
     >
       <CardBody className="relative overflow-visible py-2  text-white">
         <Image
@@ -31,11 +28,16 @@ const ProjectCard = ({ data }: props) => {
           </div>
         )}
 
-        <h3 className="text-white px-2 py-5 text-lg font-bold">{data.name}</h3>
-        <p className="font-thin px-2 ">
+        <h3 className="text-white px-2 py-5 xl:text-lg font-semibold xl:font-bold">
+          {data.name}
+        </h3>
+        <p className="font-thin px-2 text-xs">
           {data.description}{" "}
           {data.paid && (
-            <span className="text-white cursor-pointer font-semibold hover:underline">
+            <span
+              onClick={() => router.push("/project/" + data.id)}
+              className="text-white cursor-pointer font-semibold hover:underline"
+            >
               Read more
             </span>
           )}
@@ -44,7 +46,12 @@ const ProjectCard = ({ data }: props) => {
 
       <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-end">
         <a href={data.link} target="_blank">
-          <Button className="text-md" color="primary" radius="full" size="sm">
+          <Button
+            className="lg:text-md"
+            color="primary"
+            radius="full"
+            size="sm"
+          >
             Live demo
           </Button>
         </a>

@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-y-scroll overflow-x-hidden">
+      <body className="overflow-y-auto overflow-x-hidden scroll-smooth">
         <StarCanvas />
 
         <UIProviders>{children}</UIProviders>

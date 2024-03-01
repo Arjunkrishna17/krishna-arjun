@@ -11,7 +11,7 @@ const Starbg = (props: any) => {
   const ref: any = useRef();
 
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+    random.inSphere(new Float32Array(5001), { radius: 1.2 })
   );
 
   useFrame((state, delta) => {
@@ -24,7 +24,7 @@ const Starbg = (props: any) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="$fff"
+          color="#ffffff"
           size={0.002}
           sizeAttention={true}
           dethWrite={false}

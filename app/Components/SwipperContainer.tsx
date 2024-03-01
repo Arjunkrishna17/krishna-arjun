@@ -10,7 +10,6 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-// import required modules
 import {
   EffectCoverflow,
   Autoplay,
@@ -30,19 +29,22 @@ const SwipperContainer = ({ children, sectionName, id }: props) => {
   return (
     <section
       id={id}
-      className="flex flex-col h-screen justify-center items-center text-white px-10 "
+      className="flex flex-col  md:h-screen justify-center items-center text-white px-5 "
     >
       <h1 className="text-2xl md:text-4xl text-white text-center w-full py-10">
         {sectionName}
       </h1>
 
-      <div className="relative z-30 w-full px-5 ">
+      <div className="relative z-30 w-full px-10 ">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={1}
-          breakpoints={{ 500: { slidesPerView: 3 } }}
+          breakpoints={{
+            500: { slidesPerView: 2 },
+            1000: { slidesPerView: 3 },
+          }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,

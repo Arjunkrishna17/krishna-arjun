@@ -2,11 +2,9 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 interface props {
@@ -16,20 +14,23 @@ interface props {
 const LinerSwipper = ({ children }: props) => {
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={1}
+      breakpoints={{
+        850: { slidesPerView: 2 },
+        1125: { slidesPerView: 3 },
+        1370: { slidesPerView: 4 },
+      }}
       spaceBetween={30}
       grabCursor={true}
-      centeredSlides={false}
       pagination={{
+        el: ".my-custom-pagination-div",
         clickable: true,
+        renderBullet: (index, className) => {
+          return '<span class="' + className +" flex "+ '">' + "</span>";
+        },
       }}
-      className="mySwiper"
-      loop={true}
+      className="mySwiper  flex w-full "
       modules={[Autoplay, Pagination, Navigation]}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: true,
-      }}
     >
       {children}
     </Swiper>

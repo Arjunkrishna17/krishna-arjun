@@ -30,6 +30,7 @@ const Nav = () => {
 
   return (
     <Navbar
+      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       className="bg-slate-900  bg-opacity-50 shadow-lg shadow-indigo-900 backdrop-blur-md "
       classNames={{
@@ -97,38 +98,24 @@ const Nav = () => {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              // color={
-              //   index === 2
-              //     ? "primary"
-              //     : index === menuItems.length - 1
-              //     ? "danger"
-              //     : "foreground"
-              // }
-              className="w-full text-white"
-              href="#"
-              size="lg"
+              href={"#" + item}
+              className={
+                "text-lg " +
+                (index === selectedMenu ? " text-fuchsia-600" : " text-white")
+              }
+              onClick={() => {
+                setSelectedMenu(index);
+                setIsMenuOpen(false);
+                console.log("hello");
+              }}
             >
+              {" "}
               {item}
             </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
     </Navbar>
-
-    // <nav className="fixed flex items-center w-full h-16 top-0 bg-slate-900  bg-opacity-40 shadow-lg shadow-indigo-900  z-30 px-10">
-    //   <div className="flex items-center space-x-5 opacity-100 z-50 ">
-    //     {socialMedia.map((value) => (
-    //       <a
-    //         key={value.image}
-    //         href={value.link}
-    //         target="_blank"
-    //         className="hover:scale-125 transition transform"
-    //       >
-    //         <Image src={value.image} alt={value.image} width={20} height={20} />
-    //       </a>
-    //     ))}
-    //   </div>
-    // </nav>
   );
 };
 

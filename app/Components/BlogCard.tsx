@@ -17,7 +17,7 @@ const BlogCard = ({ src, heading, link }: props) => {
   return (
     <Card
       isFooterBlurred
-      className="w-60 h-60 sm:w-96 sm:h-96 xl:w-[300px] xl:h-[300px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700 border"
+      className="w-60  sm:w-80  xl:w-[300px] xl:h-[300px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700 border"
     >
       <CardBody className="relative overflow-visible py-2 px-5  text-white">
         <Image src={src} alt={src} className="object-cover rounded-xl w-full" />
