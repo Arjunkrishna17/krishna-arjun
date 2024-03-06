@@ -24,4 +24,12 @@ export const readMore = {
     description:
       "<p>Tech stack: Next Js, React Js, TypeScript, Tailwind CSS, Rechart Js, Express Js, MongoDB, Docker, AWS. </p> <p>Team member metrics offer a comprehensive overview of the individual contributions and activities within an organization. By analyzing factors such as code commits, project involvement, task completion rates, and collaboration efforts, these metrics provide valuable insights into the productivity and performance of team members.</p> <p>For engineering leaders, team member metrics serve as a powerful tool for assessing the effectiveness of their teams and identifying areas for improvement. By tracking metrics such as code quality, time spent on tasks, and project milestones achieved, leaders can gain a deeper understanding of their team's strengths and weaknesses.</p> <p>Furthermore, team member metrics play a crucial role in setting meaningful goals and expectations during 1:1 meetings. Armed with data-driven insights, leaders can engage in constructive discussions with team members, offering targeted feedback and guidance to support their professional development.</p>",
   },
+  "4": {
+    id: 4,
+    name: "Diversio",
+    video: null,
+    photo: "DiversioDashboard.png",
+    description:
+      "<p>Tech stack: React Js, Tailwind, Node  Js, Express Js, MongoDB, Stripe API , GitHub actions and AWS.  </p><p>Introducing Our Cutting-edge Full-stack E-commerce Website</p><p>Experience seamless online shopping with JWT-based authentication, enabling secure access to features. Browse products, add to cart, and effortlessly complete purchases via Stripe integration.</p><p>Our platform ensures transparency with a user-friendly interface displaying order items for easy tracking. Hosted on AWS with GitHub Actions for continuous deployment, guaranteeing reliability and scalability.</p><p>Revolutionize your online shopping experience today.</p>",
+  },
 };

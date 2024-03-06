@@ -13,6 +13,8 @@ const ProjectCard = ({ data }: props) => {
   return (
     <Card
       isFooterBlurred
+      onPress={() => router.push("/project/" + data.id)}
+      isPressable={true}
       className="w-96 h-96 xl:w-[500px] xl:h-[450px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700"
     >
       <CardBody className="relative overflow-visible py-2  text-white">

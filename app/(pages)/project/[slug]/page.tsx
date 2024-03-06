@@ -15,7 +15,7 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
   if (!projectDetails) return null;
 
   return (
-    <div className="flex flex-col h-screen relative z-40 bg-gradient-to-tl from-slate-900 via-slate-900 to-blue-900 text-white">
+    <div className="flex flex-col h-screen  relative z-40 bg-gradient-to-tl from-slate-900 via-slate-900 to-blue-900 text-white">
       <div className="flex flex-col space-y-8 py-5 px-10 overflow-auto ">
         <div className="flex w-full">
           <Button onClick={() => router.back()} color="primary">
@@ -44,8 +44,8 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
               width="640"
               height="360"
               className="w-[800px]"
-                priority
-                unoptimized={true}
+              priority
+              unoptimized={true}
             />
           )}
         </div>
@@ -58,12 +58,17 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
         <p className="flex flex-wrap">
           Please
           <a
-            href="https://linkedin.com/in/krishnaarjuntech"
+            target="_blank"
+            href={
+              projectDetails.id === 4
+                ? "https://diversio.krishnaarjun.tech"
+                : "https://linkedin.com/in/krishnaarjuntech"
+            }
             className="text-violet-400 px-1"
           >
-            connect
+            {projectDetails.id === 4 ? "click here" : "connect"}
           </a>
-          with me for Demo!
+          {(projectDetails.id === 4 ? "" : "with me ") + "for Demo!"}
         </p>
       </div>
     </div>
