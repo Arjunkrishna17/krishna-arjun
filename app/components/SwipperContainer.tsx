@@ -1,14 +1,6 @@
 "use client";
 
 import { Swiper } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css/scrollbar";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-
 import {
   EffectCoverflow,
   Autoplay,
@@ -17,16 +9,29 @@ import {
 } from "swiper/modules";
 
 import Image from "next/image";
+import { useRef, useState } from "react";
+
+// Import Swiper styles
+import "swiper/css/scrollbar";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import { onTouchEnd, onTouchStart } from "../utils/EventHandler";
 
 interface props {
-  children: React.ReactNode;
-  id: string;
+  children: (isClick: boolean) => React.ReactNode;
 }
 
-const SwipperContainer = ({ children, id }: props) => {
+const SwipperContainer = ({ children }: props) => {
+  const touchStart = useRef(0);
+  const [isClick, setIsClick] = useState(false);
+
   return (
     <div className="relative z-30 w-full px-10 ">
       <Swiper
+        onTouchStart={(e) => onTouchStart(e, touchStart)}
+        onTouchEnd={(e) => onTouchEnd(e, touchStart, setIsClick)}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -54,7 +59,7 @@ const SwipperContainer = ({ children, id }: props) => {
         }}
         className="rounded-lg cursor-pointer "
       >
-        {children}
+        {children(isClick)}
 
         <div className="flex w-full mt-5 space-x-5 items-center justify-center">
           <div className="swipePrev">

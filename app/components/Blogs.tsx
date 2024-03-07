@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { SwiperSlide } from "swiper/react";
 
 import { blogData } from "../data/blog";
@@ -8,8 +7,15 @@ import BlogCard from "./BlogCard";
 import LinerSwipper from "./LinerSwipper";
 import { motion } from "framer-motion";
 import { slideFromRight } from "../utils/motions";
+import { useEffect, useState } from "react";
 
 const Blogs = () => {
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
   return (
     <section
       id="Blog"
@@ -26,13 +32,23 @@ const Blogs = () => {
           variants={slideFromRight(0.8)}
           className="flex flex-col w-full"
         >
-          <LinerSwipper>
-            {blogData.map((data) => (
-              <SwiperSlide key={data.name}>
-                <BlogCard src={data.img} heading={data.name} link={data.link} />
-              </SwiperSlide>
-            ))}
-          </LinerSwipper>
+          {domLoaded ? <LinerSwipper>
+            {
+              (isClick) =>
+                blogData.map((data) => (
+                  <SwiperSlide key={data.name}>
+                    <BlogCard
+                      isClick={isClick}
+                      src={data.img}
+                      heading={data.name}
+                      link={data.link}
+                    />
+                  </SwiperSlide>
+                ))
+            }
+          </LinerSwipper> : 
+            <div></div>
+          }
           <div className="h-20 flex w-full mt-5  items-center justify-center">
             <div className="my-custom-pagination-div space-x-5 flex justify-center"></div>
           </div>

@@ -6,7 +6,6 @@ import { SwiperSlide } from "swiper/react";
 import { projectData } from "../data/project";
 import ProjectCard from "./Card";
 import SwipperContainer from "./SwipperContainer";
-import { Skeleton } from "@nextui-org/react";
 
 const Projects = () => {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -24,12 +23,14 @@ const Projects = () => {
         Projects
       </h1>
       {domLoaded ? (
-        <SwipperContainer id="Projects">
-          {projectData.map((data) => (
-            <SwiperSlide key={data.id}>
-              <ProjectCard data={data} />
-            </SwiperSlide>
-          ))}
+        <SwipperContainer>
+          {(isClick) =>
+            projectData.map((data) => (
+              <SwiperSlide key={data.id}>
+                <ProjectCard data={data} isClick={isClick} />
+              </SwiperSlide>
+            ))
+          }
         </SwipperContainer>
       ) : (
         <div></div>

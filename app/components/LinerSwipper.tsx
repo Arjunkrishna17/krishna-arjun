@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 import { Swiper } from "swiper/react";
 
@@ -6,14 +6,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { onTouchEnd, onTouchStart } from "../utils/EventHandler";
 
 interface props {
-  children: React.ReactNode;
+  children: (isClick: boolean) => React.ReactNode;
 }
 
 const LinerSwipper = ({ children }: props) => {
+  const touchStart = useRef(0);
+  const [isClick, setIsClick] = useState(false);
+
   return (
     <Swiper
+      onTouchStart={(e) => onTouchStart(e, touchStart)}
+      onTouchEnd={(e) => onTouchEnd(e, touchStart, setIsClick)}
       slidesPerView={1}
       breakpoints={{
         850: { slidesPerView: 2 },
@@ -26,13 +32,13 @@ const LinerSwipper = ({ children }: props) => {
         el: ".my-custom-pagination-div",
         clickable: true,
         renderBullet: (index, className) => {
-          return '<span class="' + className +" flex "+ '">' + "</span>";
+          return '<span class="' + className + " flex " + '">' + "</span>";
         },
       }}
       className="mySwiper  flex w-full "
       modules={[Autoplay, Pagination, Navigation]}
     >
-      {children}
+      {children(isClick)}
     </Swiper>
   );
 };

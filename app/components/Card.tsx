@@ -1,20 +1,34 @@
-import { Card, CardBody, CardFooter, Image, Button } from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Image,
+  Button,
+  Link,
+} from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
 import { projectData } from "../data/project";
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 interface props {
   data: (typeof projectData)[0];
+  isClick: boolean;
 }
 
-const ProjectCard = ({ data }: props) => {
+const ProjectCard = ({ data, isClick }: props) => {
   const router = useRouter();
+
+  const handleOnPress = () => {
+    if (isClick) {
+      router.push("/project/" + data.id);
+    }
+  };
 
   return (
     <Card
-      isFooterBlurred
-      onPress={() => router.push("/project/" + data.id)}
-      isPressable={true}
+      isPressable
+      onPress={handleOnPress}
       className="w-96 h-96 xl:w-[500px] xl:h-[450px] col-span-12 sm:col-span-5 bg-gradient-to-r from-slate-900 to-slate-700"
     >
       <CardBody className="relative overflow-visible py-2  text-white">
@@ -47,16 +61,16 @@ const ProjectCard = ({ data }: props) => {
       </CardBody>
 
       <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-end">
-        <a href={data.link} target="_blank">
-          <Button
-            className="lg:text-md"
-            color="primary"
-            radius="full"
-            size="sm"
-          >
-            Live demo
-          </Button>
-        </a>
+        <Link
+          href={data.link}
+          target="_blank"
+          showAnchorIcon
+          isBlock
+          color="warning"
+          className="hover:text-white text"
+        >
+          Live demo
+        </Link>
       </CardFooter>
     </Card>
   );
