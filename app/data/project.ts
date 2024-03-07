@@ -9,7 +9,7 @@ export const projectData = [
     description:
       "Engineering metrics is designed specifically for engineering and business leaders. With Axon, you can gain a comprehensive view of your organization's engineering efforts....",
     techStack:
-      "React Js | Typescript | Rechart | Tailwind CSS | Node Js | Express Js | MongoDb | GitHub Actions | AWS | Docker",
+      "React Js | Typescript | Rechart | Tailwind CSS | Node Js | Express Js | MongoDb | GitHub Actions | Git Hub | AWS | Docker | Stripe | Google Analytics",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ export const projectData = [
     description:
       "Team member metrics offer a comprehensive overview of the individual contributions and activities within an organization. By analyzing factors....",
     techStack:
-      "React Js | Typescript | Tailwind CSS | Node Js | Express Js| MongoDb | GitHub Actions | AWS | Docker",
+      "Next Js | React Js | Typescript | Tailwind CSS | Node Js | Express Js| MongoDb | GitHub Actions | AWS | Docker",
   },
   {
     id: 4,

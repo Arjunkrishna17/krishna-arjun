@@ -1,7 +1,7 @@
 "use client";
 
 import { readMore } from "@/app/data/readMore";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -23,7 +23,19 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
           </Button>
         </div>
 
-        <h1 className="font-bold text-xl">{projectDetails.name}</h1>
+        <div className="flex flex-col space-y-3">
+          <h1 className="font-bold text-xl">{projectDetails.name}</h1>
+
+          <Link
+            target="_blank"
+            href={projectDetails.link}
+            color="warning"
+            showAnchorIcon
+          >
+            {projectDetails.paid ? "Go to site" : "Live Demo"}
+          </Link>
+        </div>
+
         <div className="flex w-full items-center justify-center pt-5">
           {projectDetails.video ? (
             <video
@@ -39,7 +51,7 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
             </video>
           ) : (
             <Image
-              src={("/" + projectDetails.photo) as string}
+              src={projectDetails.img}
               alt={projectDetails.name}
               width="640"
               height="360"
@@ -50,26 +62,27 @@ const ProjectDetails = ({ params }: { params: { slug: string } }) => {
           )}
         </div>
 
+        <p>{"Tech Stack: " + projectDetails.techStack}</p>
+
         <div
           dangerouslySetInnerHTML={{ __html: projectDetails.description }}
           className="flex flex-col space-y-5"
         ></div>
 
-        <p className="flex flex-wrap">
-          Please
-          <a
-            target="_blank"
-            href={
-              projectDetails.id === 4
-                ? "https://diversio.krishnaarjun.tech"
-                : "https://linkedin.com/in/krishnaarjuntech"
-            }
-            className="text-violet-400 px-1"
-          >
-            {projectDetails.id === 4 ? "click here" : "connect"}
-          </a>
-          {(projectDetails.id === 4 ? "" : "with me ") + "for Demo!"}
-        </p>
+        {projectDetails.paid && (
+          <div className="flex flex-wrap space-x-1">
+            <span>Please</span>
+            <Link
+              target="_blank"
+              href={"https://linkedin.com/in/krishnaarjuntech"}
+              color="warning"
+              showAnchorIcon
+            >
+              connect
+            </Link>
+            <span>with me for Demo!</span>
+          </div>
+        )}
       </div>
     </div>
   );

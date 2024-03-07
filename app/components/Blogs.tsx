@@ -32,23 +32,21 @@ const Blogs = () => {
           variants={slideFromRight(0.8)}
           className="flex flex-col w-full"
         >
-          {domLoaded ? <LinerSwipper>
-            {
-              (isClick) =>
-                blogData.map((data) => (
-                  <SwiperSlide key={data.name}>
-                    <BlogCard
-                      isClick={isClick}
-                      src={data.img}
-                      heading={data.name}
-                      link={data.link}
-                    />
-                  </SwiperSlide>
-                ))
-            }
-          </LinerSwipper> : 
+          {domLoaded ? (
+            <LinerSwipper>
+              {blogData.map((data) => (
+                <SwiperSlide key={data.name}>
+                  <BlogCard
+                    src={data.img}
+                    heading={data.name}
+                    link={data.link}
+                  />
+                </SwiperSlide>
+              ))}
+            </LinerSwipper>
+          ) : (
             <div></div>
-          }
+          )}
           <div className="h-20 flex w-full mt-5  items-center justify-center">
             <div className="my-custom-pagination-div space-x-5 flex justify-center"></div>
           </div>

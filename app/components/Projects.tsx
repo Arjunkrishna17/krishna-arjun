@@ -24,17 +24,18 @@ const Projects = () => {
       </h1>
       {domLoaded ? (
         <SwipperContainer>
-          {(isClick) =>
-            projectData.map((data) => (
-              <SwiperSlide key={data.id}>
-                <ProjectCard data={data} isClick={isClick} />
-              </SwiperSlide>
-            ))
-          }
+          {projectData.map((data) => (
+            <SwiperSlide key={data.id}>
+              <ProjectCard data={data} />
+            </SwiperSlide>
+          ))}
         </SwipperContainer>
       ) : (
         <div></div>
       )}
+      <div className="z-50 h-20 flex w-full mt-5  items-center justify-center">
+        <div className="my-custom-pagination space-x-5 flex justify-center"></div>
+      </div>
     </section>
   );
 };
